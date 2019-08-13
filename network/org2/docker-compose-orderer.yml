@@ -2,9 +2,9 @@
 version: '3.2'
 
 networks:
-  skcript:
+  tfmblockchain:
     external: 
-      name: skcript
+      name: tfmblockchain
 
 services:
   
@@ -18,7 +18,7 @@ services:
       placement:
         constraints:
           - node.hostname == intel-sawtooth
-    image: hyperledger/fabric-orderer:x86_64-1.1.0
+    image: hyperledger/fabric-orderer:latest
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
     command: orderer
     hostname: orderer1.example.com
@@ -60,6 +60,6 @@ services:
     ports:
       - 8050:7050
     networks:
-      skcript:
+      tfmblockchain:
         aliases:
           - orderer1.example.com
